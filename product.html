@@ -84,9 +84,9 @@
   <div class="container">
     <div class="section-head"><span class="eyebrow">How it works</span><h2>It restarts your legs' natural pump</h2><p class="lead">EMS = Electrical Muscle Stimulation. Gentle pulses contract your lower-leg muscles — the pump that pushes blood back toward your heart — the way a walk would, without you lifting a finger.</p></div>
     <div class="steps">
-      <div class="step"><div class="n"></div><h3>Rest your feet</h3><p class="muted">Bare feet on the pad, pick your level on the remote.</p></div>
-      <div class="step"><div class="n"></div><h3>Feel the pulse</h3><p class="muted">Muscles gently contract and relax for 20 minutes.</p></div>
-      <div class="step"><div class="n"></div><h3>Lighter legs</h3><p class="muted">A warm, light feeling — daily use builds on it.</p></div>
+      <div class="step reveal"><div class="n"></div><h3>Rest your feet</h3><p class="muted">Bare feet on the pad, pick your level on the remote.</p></div>
+      <div class="step reveal"><div class="n"></div><h3>Feel the pulse</h3><p class="muted">Muscles gently contract and relax for 20 minutes.</p></div>
+      <div class="step reveal"><div class="n"></div><h3>Lighter legs</h3><p class="muted">A warm, light feeling — daily use builds on it.</p></div>
     </div>
   </div>
 </section>
@@ -149,6 +149,13 @@
 </div>
 
 <script>
+  // scroll-reveal
+  (function(){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});
+    },{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  })();
   function selOpt(el){
     document.querySelectorAll('.opt').forEach(function(o){o.classList.remove('sel');});
     el.classList.add('sel');
