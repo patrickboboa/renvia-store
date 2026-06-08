@@ -183,6 +183,31 @@
   .bawrap .bflow:nth-of-type(3){animation-delay:1.2s;left:75%;}
   @media(prefers-reduced-motion:reduce){.imgbadge,.cta-box .btn,.estep .en,.bawrap .bflow{animation:none!important;}}
 </style>
+<style>
+/* === product simulation overlay + richer mechanism (2026-06-08) === */
+.simwrap{position:relative;display:block;width:100%;max-width:440px;margin:0 auto;line-height:0;border-radius:16px;overflow:hidden;background:#fff;}
+.simwrap>img{width:100%;display:block;}
+.simwrap .sim-glow{position:absolute;width:30%;height:34%;margin:-17% 0 0 -15%;border-radius:50%;background:radial-gradient(circle,rgba(52,224,176,.6),rgba(52,224,176,0) 66%);animation:simglow 1.6s ease-in-out infinite;pointer-events:none;}
+.simwrap .sim-glow.l{left:28%;top:50%;} .simwrap .sim-glow.r{left:81%;top:50%;animation-delay:.5s;}
+@keyframes simglow{0%,100%{opacity:.14;transform:scale(.8);}50%{opacity:.68;transform:scale(1.06);}}
+.simwrap .sim-ring{position:absolute;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;border:2px solid rgba(90,240,200,.9);opacity:0;animation:simring 2.4s ease-out infinite;pointer-events:none;}
+.simwrap .sim-ring.l{left:28%;top:50%;} .simwrap .sim-ring.r{left:81%;top:50%;}
+.simwrap .sim-ring.d{animation-delay:1.2s;}
+@keyframes simring{0%{opacity:.85;transform:scale(.35);}60%{opacity:.3;}100%{opacity:0;transform:scale(6);}}
+.simwrap .sim-p{position:absolute;width:7px;height:7px;margin:-3px 0 0 -3px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#aef7da,#27c88c);box-shadow:0 0 9px 2px rgba(52,224,176,.7);opacity:0;animation:simrise 2.8s ease-in infinite;pointer-events:none;}
+@keyframes simrise{0%{opacity:0;transform:translateY(16px) scale(.5);}14%{opacity:1;}82%{opacity:.85;}100%{opacity:0;transform:translateY(-120px) scale(1);}}
+.simwrap .sim-badge{position:absolute;left:12px;top:12px;display:flex;align-items:center;gap:7px;background:rgba(6,12,10,.76);color:#aef7da;font:600 11.5px/1 system-ui,-apple-system,sans-serif;letter-spacing:.02em;padding:7px 12px;border-radius:999px;border:1px solid rgba(52,224,176,.45);}
+.simwrap .sim-dot{width:8px;height:8px;border-radius:50%;background:#34e0b0;box-shadow:0 0 8px 2px rgba(52,224,176,.9);animation:simblink 1.2s ease-in-out infinite;}
+@keyframes simblink{0%,100%{opacity:1;}50%{opacity:.25;}}
+.sim-cap{text-align:center;color:#7a847c;font-size:13.5px;line-height:1.45;}
+/* richer mechanism leg */
+.legwrap{overflow:hidden;border-radius:10px;}
+.legwrap .flow{width:13px;height:13px;margin-left:-6px;box-shadow:0 0 14px 3px rgba(255,90,50,.72);}
+.legwrap .flow:nth-of-type(2){left:52%;}
+.legwrap::after{content:"";position:absolute;left:34%;right:30%;bottom:14%;height:16%;background:linear-gradient(180deg,rgba(255,120,70,0),rgba(255,120,70,.22),rgba(255,120,70,0));border-radius:50%;filter:blur(3px);animation:legwave 2.6s ease-in infinite;z-index:2;pointer-events:none;}
+@keyframes legwave{0%{opacity:0;transform:translateY(0);}18%{opacity:.85;}100%{opacity:0;transform:translateY(-210px);}}
+@media(prefers-reduced-motion:reduce){.simwrap .sim-glow,.simwrap .sim-ring,.simwrap .sim-p,.simwrap .sim-dot,.legwrap::after{animation:none;}.simwrap .sim-glow{opacity:.5;}}
+</style>
 </head>
 <body>
 
@@ -258,7 +283,7 @@
     <div class="s"><div class="num">3</div><b>Relax 20 minutes</b><span>Read, watch TV, have your tea — it does the work.</span></div>
   </div>
 
-  <div class="figure"><div class="ph"><img src="assets/adv-inuse.jpg" alt="Top-down view of bare feet resting on the round black Renvia foot pad on a wooden floor"><div class="imgbadge gold bl"><b>20</b>min a day</div></div><div class="cap">You just rest your bare feet on the pad — that's the whole setup.</div></div>
+  <div class="figure"><div class="simwrap"><img src="assets/prod-pad.jpg" alt="The real Renvia foot pad shown active — gentle EMS pulses firing through both footplate zones"><span class="sim-glow l"></span><span class="sim-glow r"></span><span class="sim-ring l"></span><span class="sim-ring l d"></span><span class="sim-ring r"></span><span class="sim-ring r d"></span><span class="sim-p" style="left:24%;top:58%"></span><span class="sim-p" style="left:31%;top:60%;animation-delay:.9s"></span><span class="sim-p" style="left:78%;top:58%;animation-delay:.45s"></span><span class="sim-p" style="left:84%;top:60%;animation-delay:1.4s"></span><span class="sim-badge"><span class="sim-dot"></span>Live · EMS pulse &rarr; circulation &uarr;</span></div><div class="cap">You just rest your bare feet on the pad — that's the whole setup.</div></div>
 
   <div class="figure"><div class="ph"><img src="assets/adv-product.jpg" alt="The Renvia Circulation Booster — round foot pad and wireless remote"><div class="imgbadge coral tr"><b>$100</b>off today</div><div>PRODUCT IMAGE</div></div><div class="cap">Same EMS approach as the $369 device — round foot pad and wireless remote, for $99.</div></div>
 

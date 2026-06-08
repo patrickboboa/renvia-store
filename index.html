@@ -68,6 +68,31 @@
 @media(max-width:560px){.explgrid{grid-template-columns:1fr;gap:10px;}.explgrid .legimg{max-height:300px;}}
 @media(prefers-reduced-motion:reduce){.legwrap .flow,.legwrap .ems,.hgal-main .badge-float,.btn-cta.btn-lg{animation:none!important;}}
 </style>
+<style>
+/* === product simulation overlay + richer mechanism (2026-06-08) === */
+.simwrap{position:relative;display:block;width:100%;max-width:440px;margin:0 auto;line-height:0;border-radius:16px;overflow:hidden;background:#fff;}
+.simwrap>img{width:100%;display:block;}
+.simwrap .sim-glow{position:absolute;width:30%;height:34%;margin:-17% 0 0 -15%;border-radius:50%;background:radial-gradient(circle,rgba(52,224,176,.6),rgba(52,224,176,0) 66%);animation:simglow 1.6s ease-in-out infinite;pointer-events:none;}
+.simwrap .sim-glow.l{left:28%;top:50%;} .simwrap .sim-glow.r{left:81%;top:50%;animation-delay:.5s;}
+@keyframes simglow{0%,100%{opacity:.14;transform:scale(.8);}50%{opacity:.68;transform:scale(1.06);}}
+.simwrap .sim-ring{position:absolute;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;border:2px solid rgba(90,240,200,.9);opacity:0;animation:simring 2.4s ease-out infinite;pointer-events:none;}
+.simwrap .sim-ring.l{left:28%;top:50%;} .simwrap .sim-ring.r{left:81%;top:50%;}
+.simwrap .sim-ring.d{animation-delay:1.2s;}
+@keyframes simring{0%{opacity:.85;transform:scale(.35);}60%{opacity:.3;}100%{opacity:0;transform:scale(6);}}
+.simwrap .sim-p{position:absolute;width:7px;height:7px;margin:-3px 0 0 -3px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#aef7da,#27c88c);box-shadow:0 0 9px 2px rgba(52,224,176,.7);opacity:0;animation:simrise 2.8s ease-in infinite;pointer-events:none;}
+@keyframes simrise{0%{opacity:0;transform:translateY(16px) scale(.5);}14%{opacity:1;}82%{opacity:.85;}100%{opacity:0;transform:translateY(-120px) scale(1);}}
+.simwrap .sim-badge{position:absolute;left:12px;top:12px;display:flex;align-items:center;gap:7px;background:rgba(6,12,10,.76);color:#aef7da;font:600 11.5px/1 system-ui,-apple-system,sans-serif;letter-spacing:.02em;padding:7px 12px;border-radius:999px;border:1px solid rgba(52,224,176,.45);}
+.simwrap .sim-dot{width:8px;height:8px;border-radius:50%;background:#34e0b0;box-shadow:0 0 8px 2px rgba(52,224,176,.9);animation:simblink 1.2s ease-in-out infinite;}
+@keyframes simblink{0%,100%{opacity:1;}50%{opacity:.25;}}
+.sim-cap{text-align:center;color:#7a847c;font-size:13.5px;line-height:1.45;}
+/* richer mechanism leg */
+.legwrap{overflow:hidden;border-radius:10px;}
+.legwrap .flow{width:13px;height:13px;margin-left:-6px;box-shadow:0 0 14px 3px rgba(255,90,50,.72);}
+.legwrap .flow:nth-of-type(2){left:52%;}
+.legwrap::after{content:"";position:absolute;left:34%;right:30%;bottom:14%;height:16%;background:linear-gradient(180deg,rgba(255,120,70,0),rgba(255,120,70,.22),rgba(255,120,70,0));border-radius:50%;filter:blur(3px);animation:legwave 2.6s ease-in infinite;z-index:2;pointer-events:none;}
+@keyframes legwave{0%{opacity:0;transform:translateY(0);}18%{opacity:.85;}100%{opacity:0;transform:translateY(-210px);}}
+@media(prefers-reduced-motion:reduce){.simwrap .sim-glow,.simwrap .sim-ring,.simwrap .sim-p,.simwrap .sim-dot,.legwrap::after{animation:none;}.simwrap .sim-glow{opacity:.5;}}
+</style>
 </head>
 <body>
 
@@ -111,7 +136,6 @@
           <button class="hgal-t" data-src="assets/prod-pad.jpg" aria-label="Foot pad"><img src="assets/prod-pad.jpg" alt="The round foot pad"></button>
           <button class="hgal-t" data-src="assets/prod-controls.jpg" aria-label="Controls and display"><img src="assets/prod-controls.jpg" alt="Display and controls"></button>
           <button class="hgal-t" data-src="assets/prod-remote.jpg" aria-label="Remote"><img src="assets/prod-remote.jpg" alt="Wireless remote"></button>
-          <button class="hgal-t" data-src="assets/adv-inuse.jpg" aria-label="In use"><img src="assets/adv-inuse.jpg" alt="Bare feet resting on the pad"></button>
         </div>
       </div>
     </div>
@@ -127,6 +151,12 @@
     <div class="t"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M8.5 13.5L7 22l5-3 5 3-1.5-8.5"/></svg> Designed for ages 50+</div>
   </div>
 </div>
+
+<!-- SEE IT WORKING -->
+<section class="bg-mint"><div class="container"><div class="section-head"><span class="eyebrow">See it working</span><h2>Watch what Renvia is doing to your legs</h2><p class="lead">Gentle EMS pulses fire through both footplates — waking the calf muscles that pump blood back up toward your heart, the same way a brisk walk would.</p></div>
+<div class="simwrap"><img src="assets/prod-pad.jpg" alt="The real Renvia foot pad shown active — gentle EMS pulses firing through both footplate zones"><span class="sim-glow l"></span><span class="sim-glow r"></span><span class="sim-ring l"></span><span class="sim-ring l d"></span><span class="sim-ring r"></span><span class="sim-ring r d"></span><span class="sim-p" style="left:24%;top:58%"></span><span class="sim-p" style="left:31%;top:60%;animation-delay:.9s"></span><span class="sim-p" style="left:78%;top:58%;animation-delay:.45s"></span><span class="sim-p" style="left:84%;top:60%;animation-delay:1.4s"></span><span class="sim-badge"><span class="sim-dot"></span>Live · EMS pulse &rarr; circulation &uarr;</span></div>
+<div class="sim-cap" style="max-width:440px;margin:13px auto 0">Your actual device, shown active — pulses fire from each footplate and circulation lifts up the leg.</div>
+</div></section>
 
 <!-- PROBLEM -->
 <section class="bg-mint" id="problem">
@@ -170,8 +200,8 @@
   <div class="container">
     <div class="section-head"><span class="eyebrow">Why people keep using it</span><h2>Made for real life after 50</h2></div>
     <div class="features">
-      <div class="feature reveal"><div class="ph"><img src="assets/adv-inuse.jpg" alt="Bare feet resting on the round Renvia foot pad"></div><div class="ft-body"><h3>Lighter, looser legs</h3><p class="muted">Rest your bare feet on the pad and the gentle pulses do the work — relieving that heavy, tired, achy feeling.</p></div></div>
-      <div class="feature reveal"><div class="ph"><img src="assets/adv-chair.jpg" alt="A woman relaxing in a chair with her feet on the pad, remote in hand"></div><div class="ft-body"><h3>Just 20 minutes a day</h3><p class="muted">Sit back in your favourite chair, feet on the pad, remote in hand — while you read, watch TV, or have your coffee.</p></div></div>
+      <div class="feature reveal"><div class="ph"><img src="assets/adv-walk.jpg" alt="An older couple out walking together, relaxed and active"></div><div class="ft-body"><h3>Lighter, looser legs</h3><p class="muted">Rest your bare feet on the pad and the gentle pulses do the work — relieving that heavy, tired, achy feeling.</p></div></div>
+      <div class="feature reveal"><div class="ph"><img src="assets/product.jpg" alt="The Renvia Circulation Booster — foot pad and wireless remote"></div><div class="ft-body"><h3>Just 20 minutes a day</h3><p class="muted">Sit back in your favourite chair, feet on the pad, remote in hand — while you read, watch TV, or have your coffee.</p></div></div>
       <div class="feature reveal"><div class="ph"><img src="assets/product.jpg" alt="The Renvia Circulation Booster with its clear central display"></div><div class="ft-body"><h3>25 modes &amp; a clear display</h3><p class="muted">Twenty-five built-in programs and a big, easy-to-read display — pick a gentle wave or a deeper pulse.</p></div></div>
       <div class="feature reveal"><div class="ph"><img src="assets/prod-pad.jpg" alt="The round Renvia foot pad, top view"></div><div class="ft-body"><h3>99 gentle levels — you're in control</h3><p class="muted">Start whisper-soft and work up at your own pace, 1 to 99, on a big-button wireless remote. Never a shock.</p></div></div>
     </div>
