@@ -212,3 +212,46 @@ section{padding:84px 0;}
 .spec{width:100%;border-collapse:collapse;font-size:16.5px;}
 .spec td{padding:13px 0;border-bottom:1px solid var(--line);}
 .spec td:first-child{color:var(--ink-soft);width:42%;}
+
+
+/* ============================================================
+   Mechanism module — "How it works" (2026-06-08 pro rebuild)
+   ============================================================ */
+.mech-grid{display:grid;gap:28px;align-items:stretch;grid-template-columns:.82fr 1.18fr;margin-top:40px;}
+@media(max-width:880px){.mech-grid{grid-template-columns:1fr;gap:22px;}}
+.mech-device,.mech-figure{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px;margin:0;}
+.mech-figure{position:relative;display:flex;align-items:center;justify-content:center;}
+.mech-device{display:flex;flex-direction:column;justify-content:center;}
+.mech-photo{position:relative;width:100%;max-width:230px;margin:0 auto;}
+.mech-photo>img{width:100%;display:block;border:1px solid var(--line);border-radius:12px;}
+.mech-callouts{list-style:none;margin:22px 0 0;padding:0;}
+.mech-callouts li{position:relative;padding:12px 0 12px 28px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-soft);line-height:1.45;}
+.mech-callouts li:first-child{border-top:none;}
+.mech-callouts li::before{content:"";position:absolute;left:5px;top:17px;width:9px;height:9px;border-radius:50%;background:var(--teal);}
+.mech-callouts b{color:var(--ink);font-weight:700;display:block;font-size:14.5px;margin-bottom:1px;}
+.mech-svg{width:100%;height:auto;max-width:400px;display:block;}
+.mech-valvestrip{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:34px auto 0;max-width:760px;}
+@media(max-width:620px){.mech-valvestrip{grid-template-columns:1fr;max-width:340px;}}
+.vstep{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 18px 20px;text-align:center;}
+.vstep .vn{font-family:var(--serif);font-weight:600;font-size:21px;color:var(--teal-d);line-height:1;}
+.vstep svg{width:100%;max-width:104px;height:auto;margin:10px auto 12px;display:block;}
+.vstep p{font-size:13.5px;color:var(--ink-soft);margin:0;line-height:1.42;}
+.vstep b{color:var(--ink);}
+.mech-claim{max-width:680px;margin:28px auto 0;text-align:center;font-size:15px;color:var(--ink-soft);line-height:1.55;}
+.mech-svg #muscle,.mech-svg .cell,.mech-svg [id^=valve-],.mech-svg .ems-ring{animation-play-state:paused;}
+.mech-figure.is-live .mech-svg #muscle,.mech-figure.is-live .mech-svg .cell,.mech-figure.is-live .mech-svg [id^=valve-],.mech-figure.is-live .mech-svg .ems-ring{animation-play-state:running;}
+#muscle{transform-box:fill-box;transform-origin:center;animation:mechSqueeze 4.8s cubic-bezier(.4,0,.5,1) infinite;}
+@keyframes mechSqueeze{0%,12%,100%{transform:scale(1);}42%{transform:scale(1.06,1.015);}92%{transform:scale(1);}}
+.cell{offset-path:path('M216 482C213 410 212 330 216 250C219 175 223 128 226 74');offset-rotate:0deg;animation:cellRise 4.8s linear infinite;}
+@keyframes cellRise{0%{offset-distance:100%;opacity:0;}7%{opacity:1;}88%{opacity:1;}100%{offset-distance:1%;opacity:0;}}
+.cell:nth-child(1){animation-delay:0s;}.cell:nth-child(2){animation-delay:1.2s;}.cell:nth-child(3){animation-delay:2.4s;}.cell:nth-child(4){animation-delay:3.6s;}
+.ems-ring{transform-box:fill-box;transform-origin:center;animation:emsPing 4.8s ease-out infinite;}
+@keyframes emsPing{0%{transform:scale(1);opacity:.85;}40%{opacity:0;}100%{transform:scale(2.8);opacity:0;}}
+#valve-lower{transform-box:fill-box;transform-origin:center;animation:valveLower 4.8s ease-in-out infinite;}
+@keyframes valveLower{0%,8%{transform:scaleX(1);}20%,54%{transform:scaleX(.22);}72%,100%{transform:scaleX(1);}}
+#valve-upper{transform-box:fill-box;transform-origin:center;animation:valveUpper 4.8s ease-in-out infinite;}
+@keyframes valveUpper{0%,8%{transform:scaleX(.3);}20%,54%{transform:scaleX(1);}72%,100%{transform:scaleX(.3);}}
+.feature .ph{overflow:hidden;}
+.feature .ph img{transition:transform .4s ease;}
+.feature:hover .ph img{transform:scale(1.05);}
+@media(prefers-reduced-motion:reduce){#muscle,.cell,.ems-ring,#valve-lower,#valve-upper{animation:none!important;}}

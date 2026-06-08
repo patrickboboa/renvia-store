@@ -3,3 +3,4 @@
 *.py
 gan-harness/
 screenshots/
+.gstack/
