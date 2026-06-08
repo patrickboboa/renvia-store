@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Secure Checkout — Renvia Circulation Booster</title>
+<meta name="description" content="Complete your Renvia Circulation Booster order — $99 with free shipping and a 90-day money-back guarantee.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .co-card{max-width:520px;margin:30px auto 0;background:#fff;border:1px solid var(--line,#E7E0D2);border-radius:18px;padding:28px;box-shadow:0 18px 50px -28px rgba(20,40,32,.35);text-align:left}
+  .co-prod{display:flex;gap:14px;align-items:center;margin-bottom:10px}
+  .co-prod img{width:74px;height:74px;object-fit:contain;border:1px solid var(--line,#E7E0D2);border-radius:12px;background:#fff}
+  .co-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--line,#E7E0D2)}
+  .co-row:last-of-type{border-bottom:none}
+  .co-row .lbl{color:var(--ink-soft,#586159)}
+  .co-row .val{font-weight:700}
+  .co-total{font-family:var(--serif,Georgia);font-size:23px;font-weight:700}
+  .co-trust{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:16px;color:var(--ink-soft,#586159);font-size:13px}
+  #coNotify{display:none;margin-top:18px}
+</style>
+</head>
+<body>
+<div class="topbar">Spring sale — <b>$100 off</b> reserved for early customers</div>
+<header class="site-head"><div class="container"><a class="brand" href="index.html">Ren<span>via</span></a></div></header>
+<section class="hero"><div class="narrow" style="text-align:center;padding:40px 0">
+  <span class="eyebrow">Secure checkout</span>
+  <h1 style="margin:12px 0 6px">You're one step away</h1>
+  <p class="lead">256-bit encrypted checkout. Your order and card details stay fully protected.</p>
+
+  <div class="co-card">
+    <div class="co-prod">
+      <img src="assets/product.jpg" alt="Renvia Circulation Booster">
+      <div><b>Renvia Circulation Booster</b><div class="cta-sub" style="margin:2px 0 0">Foot pad + wireless remote</div></div>
+    </div>
+    <div class="co-row"><span class="lbl">Subtotal</span><span class="val">$199</span></div>
+    <div class="co-row"><span class="lbl">Launch discount</span><span class="val" style="color:var(--teal,#15614A)">−$100</span></div>
+    <div class="co-row"><span class="lbl">Shipping</span><span class="val">Free</span></div>
+    <div class="co-row"><span class="lbl co-total">Total</span><span class="val co-total">$99</span></div>
+
+    <button id="coBuy" class="btn btn-cta btn-lg" style="width:100%;margin-top:18px">Complete purchase — $99 →</button>
+
+    <div id="coNotify">
+      <p class="lead" style="font-size:16px">Secure checkout is opening shortly. Leave your email and we'll send your <b>$100-off link</b> the moment it's live.</p>
+      <!-- LAUNCH TODO: point action at your real email endpoint (Klaviyo/Mailchimp/Shopify). Until then it does not submit. -->
+      <form class="notify-form" action="#" method="post" onsubmit="return false" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:12px">
+        <input type="email" name="email" required placeholder="you@email.com" aria-label="Email address" style="flex:1;min-width:200px;padding:13px 16px;border:1px solid var(--line,#E7E0D2);border-radius:999px;font-size:15px">
+        <button class="btn btn-cta" type="submit">Notify me →</button>
+      </form>
+    </div>
+
+    <div class="co-trust"><span>🔒 Secure checkout</span><span>↩ 90-day money-back</span><span>🚚 Free shipping</span></div>
+  </div>
+  <p style="margin-top:24px"><a href="product.html">← Back to product</a></p>
+</div></section>
+<footer class="foot"><div class="container"><div class="disclaimer"><p>The Renvia Circulation Booster is a wellness device for temporary relief of tired, aching legs and feet. <b>Not intended to diagnose, treat, cure, or prevent any disease.</b> Statements not evaluated by the FDA. © 2026 Renvia.</p></div></div></footer>
+
+<script>
+// ============================================================
+//  RENVIA CHECKOUT — paste your Stripe Payment Link below.
+//  Stripe → Payment Links → "Renvia Circulation Booster" $99
+//  → copy the https://buy.stripe.com/... URL → replace the line below → redeploy.
+//  Until then, the button gracefully captures email instead of dead-ending.
+// ============================================================
+const CHECKOUT_URL = "PAYMENT_LINK_HERE";
+
+(function(){
+  var buy = document.getElementById('coBuy');
+  var notify = document.getElementById('coNotify');
+  var live = /^https?:\/\//.test(CHECKOUT_URL) && CHECKOUT_URL !== "PAYMENT_LINK_HERE";
+  if (live) {
+    buy.addEventListener('click', function(){ window.location.href = CHECKOUT_URL; });
+  } else {
+    buy.textContent = "Reserve my Renvia — $99 →";
+    buy.addEventListener('click', function(){ notify.style.display = 'block'; buy.style.display = 'none'; });
+  }
+})();
+</script>
+</body>
+</html>

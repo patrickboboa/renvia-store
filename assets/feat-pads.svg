@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" width="480" height="270" role="img" aria-label="Therapy pads on knee and lower back">
+  <rect width="480" height="270" fill="#FBFAF7"/>
+  <!-- bent leg / knee -->
+  <path d="M70 210 Q86 120 150 110 Q210 104 214 150 Q216 196 150 210 Z" fill="#E8B58E"/>
+  <rect x="120" y="120" width="74" height="74" rx="18" fill="#FFFFFF" stroke="#9CC3B2" stroke-width="3"/>
+  <rect x="136" y="136" width="42" height="42" rx="10" fill="#E9F3EF"/>
+  <!-- back / torso -->
+  <path d="M300 70 Q372 64 380 150 Q386 222 312 224 Q286 150 300 70 Z" fill="#2A3B38"/>
+  <rect x="316" y="118" width="64" height="64" rx="16" fill="#FFFFFF" stroke="#9CC3B2" stroke-width="3"/>
+  <rect x="330" y="132" width="36" height="36" rx="9" fill="#E9F3EF"/>
+  <path d="M194 157 Q250 150 316 150" stroke="#9CC3B2" stroke-width="4" fill="none" stroke-dasharray="2 8" stroke-linecap="round"/>
+  <circle cx="255" cy="153" r="6" fill="#E8694A"/>
+</svg>

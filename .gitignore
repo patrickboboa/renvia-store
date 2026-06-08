@@ -1,0 +1,5 @@
+# Internal working docs & tooling ? NOT part of the public storefront
+*.md
+*.py
+gan-harness/
+screenshots/

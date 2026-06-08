@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" width="480" height="270" role="img" aria-label="Person relaxing in a chair using the device">
+  <rect width="480" height="270" fill="#BFE0D3"/>
+  <rect x="120" y="84" width="200" height="150" rx="28" fill="#0E7C66"/>
+  <rect x="120" y="168" width="200" height="66" rx="24" fill="#0A5C4B"/>
+  <rect x="106" y="118" width="32" height="116" rx="16" fill="#0A5C4B"/>
+  <rect x="302" y="118" width="32" height="116" rx="16" fill="#0A5C4B"/>
+  <g fill="#2A3B38"><circle cx="210" cy="96" r="28"/><path d="M176 124 Q210 110 244 124 L252 196 Q210 184 168 196 Z"/>
+    <path d="M180 188 Q176 224 300 232 L300 214 Q210 206 200 188 Z"/></g>
+  <ellipse cx="326" cy="226" rx="26" ry="13" fill="#E8B58E"/>
+  <rect x="300" y="232" width="116" height="26" rx="11" fill="#FFFFFF" stroke="#DCE6E1" stroke-width="2"/>
+  <circle cx="362" cy="245" r="4" fill="#E3A93B"/>
+</svg>
