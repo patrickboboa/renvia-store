@@ -33,6 +33,39 @@
 .hgal-t.active{border-color:var(--teal);}
 .hgal-t img{width:100%;height:100%;object-fit:cover;display:block;}
 @media(prefers-reduced-motion:reduce){.hgal-main img{transition:none;}}
+/* how to use — editorial 2-col (2026-06-09) */
+.howto-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center;}
+@media(max-width:880px){.howto-grid{grid-template-columns:1fr;gap:34px;}}
+.howto-shot{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);aspect-ratio:1;box-shadow:var(--shadow);overflow:hidden;}
+.howto-shot img{width:100%;height:100%;object-fit:contain;padding:8%;}
+.howto-shot .badge-float{background:var(--teal);}
+.howto-list{list-style:none;counter-reset:h;}
+.howto-list li{position:relative;padding:0 0 28px 72px;}
+.howto-list li:last-child{padding-bottom:0;}
+.howto-list li:before{counter-increment:h;content:counter(h);position:absolute;left:0;top:-3px;width:50px;height:50px;border-radius:99px;background:var(--mint);border:1.5px solid var(--teal);color:var(--teal-d);font-family:var(--serif);font-weight:600;font-size:23px;display:flex;align-items:center;justify-content:center;}
+.howto-list li:after{content:"";position:absolute;left:25px;top:51px;bottom:12px;width:1.5px;background:var(--line-2);}
+.howto-list li:last-child:after{display:none;}
+.howto-list h3{margin-bottom:5px;}
+.howto-list p{color:var(--ink-soft);font-size:16.5px;line-height:1.52;}
+/* photo-led hero (2026-06-09) */
+.herovis{position:relative;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/3;}
+.herovis>img{width:100%;height:100%;object-fit:cover;display:block;}
+.herovis .badge-float{background:var(--coral);}
+.herothumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px;}
+.herothumbs figure{margin:0;}
+.herothumbs img{width:100%;aspect-ratio:1;object-fit:contain;padding:10%;background:#fff;border:1px solid var(--line);border-radius:12px;}
+.herothumbs figcaption{font-size:11px;color:var(--ink-soft);text-align:center;margin-top:5px;font-weight:600;}
+/* full-width in-use proof band (2026-06-09) */
+.proofband{padding:0;}
+.proofband .pb-grid{display:grid;grid-template-columns:1fr 1.1fr;align-items:stretch;min-height:520px;}
+.proofband .pb-copy{background:var(--teal-d);color:#EAF3EE;display:flex;align-items:center;}
+.proofband .pb-copy-in{max-width:520px;margin-left:auto;padding:64px 56px 64px 26px;}
+.proofband .pb-copy .eyebrow{color:var(--gold);}
+.proofband .pb-copy h2{color:#fff;margin:10px 0 14px;}
+.proofband .pb-copy .lead{color:#CFE0D8;margin-bottom:24px;}
+.proofband .pb-photo{position:relative;overflow:hidden;}
+.proofband .pb-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+@media(max-width:860px){.proofband .pb-grid{grid-template-columns:1fr;min-height:0;}.proofband .pb-photo{position:relative;aspect-ratio:16/10;}.proofband .pb-photo img{position:absolute;}.proofband .pb-copy-in{margin:0;padding:46px 26px;max-width:none;}}
 </style>
 </head>
 <body>
@@ -58,7 +91,7 @@
     <div>
       <span class="eyebrow">Drug-free circulation therapy</span>
       <h1>Tired, heavy legs by the afternoon? Make them feel light again.</h1>
-      <p class="lead">The Renvia Circulation Booster uses gentle EMS technology to activate the muscles in your lower legs — the same muscles that pump blood back up toward your heart — in just 20 minutes a day, sitting in your favorite chair.</p>
+      <p class="lead">The Renvia Circulation Booster uses gentle EMS technology to wake up the tired muscles in your lower legs — the calf muscles that keep your legs feeling light when you move — in just 20 minutes a day, sitting in your favorite chair.</p>
       <div class="rating-row"><span>Drug-free · designed for life after 50 · 90-day money-back guarantee</span></div>
       <ul class="hero-list">
         <li>Helps relieve tired, heavy, aching legs &amp; feet</li>
@@ -70,13 +103,13 @@
       <div class="cta-sub">90-day money-back guarantee · Free shipping</div>
     </div>
     <div>
-      <div class="hgal">
-        <div class="hgal-main"><img id="hgalMain" src="assets/product.jpg" alt="The Renvia Circulation Booster — round black foot pad and wireless remote" fetchpriority="high"><div class="badge-float">Save $100</div></div>
-        <div class="hgal-thumbs">
-          <button class="hgal-t active" data-src="assets/product.jpg" aria-label="Full kit"><img src="assets/product.jpg" alt="Renvia foot pad and remote"></button>
-          <button class="hgal-t" data-src="assets/prod-pad.jpg" aria-label="Foot pad"><img src="assets/prod-pad.jpg" alt="The round foot pad"></button>
-          <button class="hgal-t" data-src="assets/prod-controls.jpg" aria-label="Controls and display"><img src="assets/prod-controls.jpg" alt="Display and controls"></button>
-          <button class="hgal-t" data-src="assets/prod-remote.jpg" aria-label="Remote"><img src="assets/prod-remote.jpg" alt="Wireless remote"></button>
+      <div class="herovis-wrap">
+        <div class="herovis"><img src="assets/lifestyle-hero.jpg" alt="A relaxed woman in her sixties resting with her feet up in a calm, sunlit living room" fetchpriority="high"><div class="badge-float">Save $100</div></div>
+        <div class="herothumbs">
+          <figure><img src="assets/product.jpg" alt="Renvia foot pad and remote"><figcaption>Pad + remote</figcaption></figure>
+          <figure><img src="assets/prod-pad.jpg" alt="The round foot pad"><figcaption>Footplate</figcaption></figure>
+          <figure><img src="assets/prod-controls.jpg" alt="Display and controls"><figcaption>Clear display</figcaption></figure>
+          <figure><img src="assets/prod-remote.jpg" alt="Wireless remote"><figcaption>Easy remote</figcaption></figure>
         </div>
       </div>
     </div>
@@ -99,73 +132,49 @@
     <span class="eyebrow">Sound familiar?</span>
     <h2 style="margin:12px 0 18px">If you sit a lot — or stand all day — your legs pay the price</h2>
     <p class="lead">By mid-afternoon your legs feel like lead. Your ankles puff up. Your feet go cold and tingly at night. You prop them up, you wear the socks, you keep moving — but the heavy, achy feeling always comes back.</p>
-    <p class="lead" style="margin-top:18px"><b>Here's the part most people never hear:</b> as we get older — and especially when we sit for long stretches — the muscles in our lower legs stop squeezing as often. Those muscles are the pump that pushes blood back up from your feet. When the pump slows down, blood pools, and that's the heavy, swollen, tired feeling you know too well.</p>
+    <p class="lead" style="margin-top:18px"><b>Here's the part most people never hear:</b> as we get older — and especially when we sit for long stretches — the muscles in our lower legs work far less than they used to. Those muscles are what keep your legs feeling light when you move. When they go quiet, that heavy, swollen, tired feeling is what creeps in by mid-afternoon.</p>
   </div>
 </section>
 
 <!-- HOW IT WORKS -->
 <section id="how">
   <div class="container">
-    <div class="section-head"><span class="eyebrow">The mechanism</span><h2>Your calf is a second heart &mdash; Renvia restarts it while you sit</h2><p class="lead">EMS &mdash; Electrical Muscle Stimulation &mdash; sends gentle pulses that make your lower-leg muscles squeeze and release on their own, the way a brisk walk would.</p></div>
-    <div class="mech-grid">
-      <figure class="mech-device">
-        <div class="mech-photo"><img src="assets/prod-pad.jpg" width="780" height="960" alt="The Renvia foot pad, top view — two electrode footplates, a live readout, and intensity buttons"></div>
-        <ul class="mech-callouts">
-          <li><b>Dual electrode zones</b>One pad per foot</li>
-          <li><b>Live readout</b>Time &middot; intensity &middot; program</li>
-          <li><b>Intensity, 1&ndash;99</b>Gentle to deep &mdash; you stay in control</li>
-        </ul>
-      </figure>
-      <figure class="mech-figure">
-        <svg class="mech-svg" viewBox="0 0 440 520" role="img" aria-labelledby="mt md" xmlns="http://www.w3.org/2000/svg">
-          <title id="mt">How Renvia restarts your calf pump</title>
-          <desc id="md">A lower-leg figure: the calf muscle squeezes a deep vein with two one-way valves, pushing blood cells up toward the heart.</desc>
-          <path d="M176 58C158 110 152 168 158 220C162 268 170 322 192 374C200 396 198 424 196 448L196 466C196 478 210 482 224 481L298 478C308 477 310 469 303 463L252 442C247 418 246 372 250 320C256 266 264 212 262 152C261 116 258 84 256 58C246 48 186 48 176 58Z" fill="#ECF1EC" fill-opacity=".5" stroke="#586159" stroke-width="2.2" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
-          <g id="muscle">
-            <path d="M150 140C128 176 126 230 138 282C147 318 170 332 190 310C202 296 204 240 197 188C192 152 178 130 150 140Z" fill="#5C9A85" fill-opacity=".22" stroke="#15614A" stroke-width="2" vector-effect="non-scaling-stroke"/>
-            <path d="M160 168C172 206 175 256 170 296M178 164C190 204 192 254 185 296" fill="none" stroke="#15614A" stroke-width=".9" stroke-opacity=".4" vector-effect="non-scaling-stroke"/>
-          </g>
-          <path d="M216 482C213 410 212 330 216 250C219 175 223 128 226 74" fill="none" stroke="#3E7C8C" stroke-width="11" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
-          <path d="M216 482C213 410 212 330 216 250C219 175 223 128 226 74" fill="none" stroke="#2C6E7E" stroke-opacity=".2" stroke-width="7" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
-          <g id="cells">
-            <circle class="cell" r="5.2" fill="#CF6A47" fill-opacity=".92" stroke="#B14E2D" stroke-width="1"/>
-            <circle class="cell" r="5.2" fill="#CF6A47" fill-opacity=".92" stroke="#B14E2D" stroke-width="1"/>
-            <circle class="cell" r="5.2" fill="#CF6A47" fill-opacity=".92" stroke="#B14E2D" stroke-width="1"/>
-            <circle class="cell" r="4.6" fill="#CF6A47" fill-opacity=".88" stroke="#B14E2D" stroke-width="1"/>
-          </g>
-          <g id="valve-lower"><path d="M207 350C211 358 214 360 214 365" fill="none" stroke="#0E4634" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/><path d="M223 350C219 358 216 360 216 365" fill="none" stroke="#0E4634" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></g>
-          <g id="valve-upper"><path d="M216 196C220 204 223 206 223 211" fill="none" stroke="#0E4634" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/><path d="M232 196C228 204 225 206 225 211" fill="none" stroke="#0E4634" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></g>
-          <g id="foot-pulse">
-            <circle class="ems-ring" cx="216" cy="480" r="7" fill="none" stroke="#15614A" stroke-width="1.6"/>
-            <circle cx="216" cy="480" r="4.5" fill="#15614A"/>
-          </g>
-          <g font-family="'Hanken Grotesk',system-ui,sans-serif">
-            <path d="M226 64L226 74" stroke="#DCE6DF" stroke-width="1" fill="none"/>
-            <text x="226" y="54" font-size="13" font-weight="700" fill="#16201C" text-anchor="middle">&#8593; to the heart</text>
-            <path d="M132 236L62 248" stroke="#DCE6DF" stroke-width="1" fill="none"/>
-            <text x="16" y="242" font-size="13.5" font-weight="700" fill="#16201C">Calf muscle</text>
-            <text x="16" y="259" font-size="12" fill="#586159">your &#8220;second heart&#8221;</text>
-            <path d="M222 358L322 358" stroke="#DCE6DF" stroke-width="1" fill="none"/><circle cx="222" cy="358" r="2.2" fill="#586159"/>
-            <text x="424" y="354" font-size="13.5" font-weight="700" fill="#16201C" text-anchor="end">One-way valve</text>
-            <text x="424" y="371" font-size="12" fill="#586159" text-anchor="end">opens upward only</text>
-            <path d="M216 480L300 480" stroke="#DCE6DF" stroke-width="1" fill="none"/>
-            <text x="306" y="484" font-size="13.5" font-weight="700" fill="#16201C">Gentle EMS pulse</text>
-          </g>
-        </svg>
-      </figure>
+    <div class="section-head"><span class="eyebrow">How it works</span><h2>Gentle pulses do the walking &mdash; while you sit still</h2><p class="lead">EMS &mdash; Electrical Muscle Stimulation &mdash; sends gentle, painless pulses that make your lower-leg muscles contract and release on their own, the same motion as taking a step.</p></div>
+    <div class="steps">
+      <div class="step reveal"><div class="n"></div><h3>Stimulate</h3><p class="muted">A soft EMS pulse from the pad reaches the muscles in your soles and calves &mdash; no effort from you.</p></div>
+      <div class="step reveal"><div class="n"></div><h3>Activate</h3><p class="muted">Those muscles gently contract and release, beat after beat &mdash; the same way a brisk walk works them.</p></div>
+      <div class="step reveal"><div class="n"></div><h3>Feel lighter</h3><p class="muted">Working those idle muscles is what eases the heavy, tired, achy feeling &mdash; drug-free, in 20 minutes a day.</p></div>
     </div>
-    <div class="mech-valvestrip">
-      <div class="vstep"><div class="vn">1</div>
-        <svg viewBox="0 0 120 130" xmlns="http://www.w3.org/2000/svg"><rect x="48" y="10" width="24" height="110" rx="12" fill="#2C6E7E" fill-opacity=".16" stroke="#3E7C8C" stroke-width="2"/><path d="M52 78C57 86 60 88 60 92M68 78C63 86 60 88 60 92" fill="none" stroke="#0E4634" stroke-width="2.4" stroke-linecap="round"/><circle cx="60" cy="54" r="5" fill="#CF6A47" fill-opacity=".9" stroke="#B14E2D"/><circle cx="60" cy="38" r="5" fill="#CF6A47" fill-opacity=".9" stroke="#B14E2D"/></svg>
-        <p><b>Muscle relaxed.</b> Valve open, blood resting.</p></div>
-      <div class="vstep"><div class="vn">2</div>
-        <svg viewBox="0 0 120 130" xmlns="http://www.w3.org/2000/svg"><path d="M30 48C42 60 42 70 30 82M90 48C78 60 78 70 90 82" fill="none" stroke="#15614A" stroke-width="2.6" stroke-linecap="round"/><rect x="50" y="10" width="20" height="110" rx="10" fill="#2C6E7E" fill-opacity=".16" stroke="#3E7C8C" stroke-width="2"/><path d="M54 84L60 80L66 84" fill="none" stroke="#0E4634" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <p><b>Muscle squeezes.</b> Lower valve shuts &mdash; no backflow.</p></div>
-      <div class="vstep"><div class="vn">3</div>
-        <svg viewBox="0 0 120 130" xmlns="http://www.w3.org/2000/svg"><rect x="48" y="10" width="24" height="110" rx="12" fill="#2C6E7E" fill-opacity=".16" stroke="#3E7C8C" stroke-width="2"/><path d="M60 98L60 34M60 34L51 45M60 34L69 45" fill="none" stroke="#CF6A47" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M53 110L60 116L67 110" fill="none" stroke="#0E4634" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <p><b>Blood pushed up.</b> Upper valve opens toward the heart.</p></div>
+    <p class="mech-claim">You'll feel a gentle tingling that builds into a comfortable, pulsing rhythm &mdash; your calf muscles doing the work that keeps legs feeling light, while you sit still. For temporary relief of tired, aching legs and feet.</p>
+  </div>
+</section>
+<!-- HOW TO USE -->
+<section class="bg-mint" id="howto">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">As easy as it gets</span><h2>Using it couldn't be simpler</h2><p class="lead">No setup, no learning curve. If you can sit down and press one button, you can use Renvia.</p></div>
+    <div class="howto-grid">
+      <div class="howto-shot reveal"><img src="assets/product.jpg" alt="The Renvia Circulation Booster — round black foot pad and wireless remote"><div class="badge-float">20 minutes a day</div></div>
+      <ol class="howto-list reveal">
+        <li><h3>Rest your bare feet on the pad</h3><p>Sit back in your favourite chair and place both bare feet on the two footplates. That's the whole setup — no straps, no gel, no fuss.</p></li>
+        <li><h3>Choose your comfort level</h3><p>Press start and pick an intensity on the big-button wireless remote. Begin whisper-soft and turn it up only to what feels good — 99 gentle levels.</p></li>
+        <li><h3>Relax while it runs for 20 minutes</h3><p>Read, watch TV, or have your coffee. You'll feel a warm, gentle flutter as it works — then it switches off on its own.</p></li>
+      </ol>
     </div>
-    <p class="mech-claim">Gentle EMS pulses prompt your calf muscles to contract, supporting circulation while you sit still &mdash; for temporary relief of tired, aching legs and feet.</p>
+  </div>
+</section>
+
+<!-- IN-USE PROOF BAND -->
+<section class="proofband">
+  <div class="pb-grid">
+    <div class="pb-copy">
+      <div class="pb-copy-in">
+        <span class="eyebrow">See it in use</span>
+        <h2>Twenty quiet minutes, right in your own chair</h2>
+        <p class="lead">Bare feet on the pad, pick a level on the remote, and let it work while you read or watch TV. Most people feel a warm, gentle flutter from the very first session.</p>
+        <a class="btn btn-cta" href="product.html">Try it for 90 days, risk-free →</a>
+      </div>
+    </div>
+    <div class="pb-photo"><img src="assets/inuse-proof.jpg" alt="An older woman's bare feet resting on the round Renvia foot pad on a warm wooden living-room floor, the remote beside it"></div>
   </div>
 </section>
 
@@ -174,10 +183,10 @@
   <div class="container">
     <div class="section-head"><span class="eyebrow">Why people keep using it</span><h2>Made for real life after 50</h2></div>
     <div class="features">
-      <div class="feature reveal"><div class="ph"><img src="assets/adv-walk.jpg" alt="An older couple out walking together, relaxed and active"></div><div class="ft-body"><h3>Lighter, looser legs</h3><p class="muted">Rest your bare feet on the pad and the gentle pulses do the work — relieving that heavy, tired, achy feeling.</p></div></div>
-      <div class="feature reveal"><div class="ph"><img src="assets/product.jpg" alt="The Renvia Circulation Booster — foot pad and wireless remote"></div><div class="ft-body"><h3>Just 20 minutes a day</h3><p class="muted">Sit back in your favourite chair, feet on the pad, remote in hand — while you read, watch TV, or have your coffee.</p></div></div>
-      <div class="feature reveal"><div class="ph"><img src="assets/product.jpg" alt="The Renvia Circulation Booster with its clear central display"></div><div class="ft-body"><h3>25 modes &amp; a clear display</h3><p class="muted">Twenty-five built-in programs and a big, easy-to-read display — pick a gentle wave or a deeper pulse.</p></div></div>
-      <div class="feature reveal"><div class="ph"><img src="assets/prod-pad.jpg" alt="The round Renvia foot pad, top view"></div><div class="ft-body"><h3>99 gentle levels — you're in control</h3><p class="muted">Start whisper-soft and work up at your own pace, 1 to 99, on a big-button wireless remote. Never a shock.</p></div></div>
+      <div class="feature reveal"><div class="ph"><img src="assets/lifestyle-walk.jpg" alt="An active couple in their sixties out walking together at golden hour, relaxed and energetic"></div><div class="ft-body"><h3>Lighter, looser legs</h3><p class="muted">Rest your bare feet on the pad and the gentle pulses do the work — relieving that heavy, tired, achy feeling.</p></div></div>
+      <div class="feature reveal"><div class="ph"><img src="assets/product-stage.jpg" alt="The Renvia Circulation Booster — foot pad and wireless remote on a warm studio backdrop"></div><div class="ft-body"><h3>Just 20 minutes a day</h3><p class="muted">Sit back in your favourite chair, feet on the pad, remote in hand — while you read, watch TV, or have your coffee.</p></div></div>
+      <div class="feature reveal"><div class="ph"><img src="assets/lifestyle-inuse.jpg" alt="An older person's bare feet resting on the round Renvia foot pad on a warm wooden floor"></div><div class="ft-body"><h3>You feel it from the first session</h3><p class="muted">A warm, gentle flutter moves through your feet and calves the moment it starts — pleasant, never a shock.</p></div></div>
+      <div class="feature reveal"><div class="ph"><img src="assets/lifestyle-remote.jpg" alt="An older person's hand holding the big-button Renvia wireless remote"></div><div class="ft-body"><h3>99 gentle levels — you're in control</h3><p class="muted">Start whisper-soft and turn it up at your own pace, 1 to 99, on a big-button wireless remote.</p></div></div>
     </div>
   </div>
 </section>
@@ -190,7 +199,7 @@
     <table class="compare">
       <thead><tr><th></th><th class="us">Renvia</th><th>The big TV brand</th></tr></thead>
       <tbody>
-        <tr><td>EMS circulation technology</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
+        <tr><td>EMS muscle-stimulation technology</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
         <tr><td>Wireless remote</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
         <tr><td>25 massage modes</td><td class="c yes">✓</td><td class="c no">varies</td></tr>
         <tr><td>99 intensity levels</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
@@ -263,7 +272,7 @@
         <p>Drug-free circulation therapy for tired, heavy legs — designed to be simple, gentle, and made for life after 50.</p>
       </div>
       <div><h4>Shop</h4><ul><li><a href="product.html?bundle=single">Circulation Booster</a></li><li><a href="product.html?bundle=2pack">2-Pack</a></li><li><a href="product.html?bundle=pads">Gel-pad refills</a></li></ul></div>
-      <div><h4>Help</h4><ul><li><a href="#faq">FAQ</a></li><li><a href="shipping-returns.html">Shipping &amp; returns</a></li><li><a href="contact.html">Contact us</a></li></ul></div>
+      <div><h4>Help</h4><ul><li><a href="#faq">FAQ</a></li><li><a href="shipping-returns.html">Shipping &amp; returns</a></li><li><a href="contact.html">Contact us</a></li><li><a href="privacy.html">Privacy policy</a></li><li><a href="terms.html">Terms of service</a></li></ul></div>
     </div>
     <div class="disclaimer">
       <p><b>Important:</b> The Renvia Circulation Booster is a wellness device intended to stimulate leg muscles and provide temporary relief of tired, aching legs and feet. It is <b>not intended to diagnose, treat, cure, or prevent any disease</b>, including circulatory or nerve conditions. Statements on this site have not been evaluated by the FDA. Results vary from person to person. Consult your physician before use if you have a pacemaker/implanted device, are pregnant, or have a medical condition. © 2026 Renvia. All rights reserved.</p>
